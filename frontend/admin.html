@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AeroTech Studio administrator dashboard. Provision new product catalogs, update listings, monitor user orders, and review transactions.">
+  <title>AeroTech Admin | Product & Order Operations Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header Wrapper -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="index.html" class="logo">
+          AeroTech <span>Admin</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Catalog</a>
+        <a href="cart.html" class="nav-link" id="nav-cart-link">Orders & Cart</a>
+        <a href="admin.html" class="nav-link active" id="nav-admin-link">Admin Panel</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-actions">
+        <!-- Dynamically populated from JS -->
+        <a href="auth.html" class="btn-login" id="btn-nav-login">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Administrative Container -->
+  <main class="container" id="admin-main-container">
+    
+    <!-- Title Section -->
+    <div class="page-title-section">
+      <h1 class="page-title">Administrative Dashboard</h1>
+      <p class="page-subtitle">Add or delete physical inventory and review historic storefront buyer orders</p>
+    </div>
+
+    <!-- Admin Operations Grid -->
+    <div class="admin-grid">
+      
+      <!-- Section 1: Add New Product Form -->
+      <section class="admin-section-card">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">Provision New Product</h2>
+        </div>
+        
+        <form id="admin-add-product" onsubmit="handleProductCreation(event)">
+          <div class="grid-form">
+            <div class="form-group">
+              <label class="form-label" for="admin-prod-name">Product Name *</label>
+              <input class="form-input" type="text" id="admin-prod-name" placeholder="Enter product name" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="admin-prod-price">Retail Price ($) *</label>
+              <input class="form-input" type="number" step="0.01" min="0" id="admin-prod-price" placeholder="e.g. 199.99" required>
+            </div>
+
+            <div class="form-full-row form-group">
+              <label class="form-label" for="admin-prod-image">Image Web Link (URL) *</label>
+              <input class="form-input" type="url" id="admin-prod-image" placeholder="HTTPS image url link" required>
+            </div>
+
+            <div class="form-full-row form-group">
+              <label class="form-label" for="admin-prod-desc">Detailed Description</label>
+              <textarea class="form-input" id="admin-prod-desc" rows="3" placeholder="Enter product details..." style="resize: vertical; font-family: inherit; font-size: inherit;"></textarea>
+            </div>
+            
+            <div class="form-full-row">
+              <button class="btn-admin-action" type="submit" id="btn-admin-save-product">Register Product Listing</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Section 2: Manage Existing Listings -->
+      <section class="admin-section-card">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">
+            Managed Store Inventory <span id="admin-inventory-count">0 items</span>
+          </h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Product Identifier</th>
+                <th>Thumbnail & Name</th>
+                <th>Retail Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-table-body">
+              <!-- Dynamically populated from JS -->
+              <tr>
+                <td colspan="4" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                  Loading store inventory lists...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3: Live Customer Orders Ledger -->
+      <section class="admin-section-card">
+        <div class="admin-section-header">
+          <h2 class="admin-section-title">
+            Buyer Sales Log <span id="admin-orders-count">0 payments</span>
+          </h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Date & Time</th>
+                <th>Purchased Items</th>
+                <th>Invoice Price</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-table-body">
+              <!-- Dynamically populated from JS -->
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                  Loading customer orders ledger...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">AeroTech Studio</div>
+      <div class="footer-copyright">&copy; 2026 AeroTech E-Commerce Project. All rights reserved. Built for Internship Submission.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Overlay Container -->
+  <div id="toast-container"></div>
+
+  <!-- JavaScript script inclusion -->
+  <script src="app.js"></script>
+</body>
+</html>

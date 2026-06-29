@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover high performance gear at AeroTech Studio. Buy customizable mechanical keyboards, wireless mice, active noise-cancelling headphones, and ultra-wide gaming displays.">
+  <title>AeroTech Studio | Premium Computing Hardware & Accessories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="index.html" class="logo">
+          AeroTech <span>Store</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active" id="nav-home">Catalog</a>
+        <a href="cart.html" class="nav-link" id="nav-cart-link">Orders & Cart</a>
+        <a href="admin.html" class="nav-link" id="nav-admin-link" style="display: none;">Admin Panel</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-actions">
+        <!-- Will be dynamically populated by JS (Login button, or Username badge + Logout) -->
+        <a href="auth.html" class="btn-login" id="btn-nav-login">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Storefront Container -->
+  <main class="container">
+    
+    <!-- Hero Banner Presentation -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Summer Launch Collection</span>
+        <h1 class="hero-title">Elevate Your Creative & Gaming Space</h1>
+        <p class="hero-desc">Experience meticulously crafted desk essentials designed for ultimate precision, noise management, and ergonomics.</p>
+        <a href="#store-catalog" class="btn-shop" id="btn-hero-shop">Explore Collection</a>
+      </div>
+    </section>
+
+    <!-- Product Catalog Header Section -->
+    <section id="store-catalog">
+      <div class="section-header">
+        <h2 class="section-title">Store Catalog</h2>
+        <a href="cart.html" class="btn-cart" id="btn-cart-indicator">
+          <span>Shopping Cart</span>
+          <span class="cart-count" id="cart-indicator-count">0</span>
+        </a>
+      </div>
+
+      <!-- Dynamic Product List Grid -->
+      <div class="product-grid" id="product-grid">
+        <!-- Dynamic listings injected here by app.js -->
+        <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 3rem 0;">
+          <p>Loading premium collection...</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">AeroTech Studio</div>
+      <div class="footer-copyright">&copy; 2026 AeroTech E-Commerce Project. All rights reserved. Built for Internship Submission.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Overlay Container -->
+  <div id="toast-container"></div>
+
+  <!-- Main JavaScript App Context -->
+  <script src="app.js"></script>
+</body>
+</html>

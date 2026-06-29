@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access your AeroTech account. Sign in or register to track shopping carts, access invoice statements, and manage account credentials.">
+  <title>AeroTech Access Portal | Sign In & Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header Wrapper -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="index.html" class="logo">
+          AeroTech <span>Store</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Catalog</a>
+        <a href="cart.html" class="nav-link" id="nav-cart-link">Orders & Cart</a>
+        <a href="admin.html" class="nav-link" id="nav-admin-link" style="display: none;">Admin Panel</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-actions">
+        <a href="index.html" class="nav-link" style="font-weight: 600;">Return to Catalog</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Container -->
+  <main class="container">
+    <div class="auth-grid" id="auth-portal-selection">
+      <div class="auth-card">
+        
+        <div class="auth-header">
+          <div class="auth-logo">AeroTech Portal</div>
+          <h1 class="auth-title" id="auth-card-title">Welcome Back</h1>
+          <p class="auth-subtitle" id="auth-card-subtitle">Log in to experience personalization settings</p>
+        </div>
+
+        <!-- Form Mode Select Tabs -->
+        <div class="auth-toggle-tabs">
+          <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</div>
+          <div class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Create Account</div>
+        </div>
+
+        <!-- login layout forms -->
+        <form id="form-login" onsubmit="handleAuthSubmit(event, 'login')">
+          <div class="form-group">
+            <label class="form-label" for="login-username">E-mail or Username</label>
+            <div class="form-input-container">
+              <input class="form-input" type="text" id="login-username" placeholder="e.g. name@domain.com" required autocomplete="username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <div class="form-input-container">
+              <input class="form-input" type="password" id="login-password" placeholder="Enter password" required autocomplete="current-password">
+            </div>
+          </div>
+
+          <button class="btn-submit" type="submit" id="btn-login-submit">Sign In</button>
+        </form>
+
+        <!-- register layout forms -->
+        <form id="form-register" onsubmit="handleAuthSubmit(event, 'register')" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="register-username">Username or E-mail</label>
+            <div class="form-input-container">
+              <input class="form-input" type="text" id="register-username" placeholder="Choose a username" required autocomplete="username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="register-password">Password</label>
+            <div class="form-input-container">
+              <input class="form-input" type="password" id="register-password" placeholder="Create robust password" required autocomplete="new-password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="register-confirm-password">Confirm Password</label>
+            <div class="form-input-container">
+              <input class="form-input" type="password" id="register-confirm-password" placeholder="Confirm password" required autocomplete="new-password">
+            </div>
+          </div>
+
+          <button class="btn-submit" type="submit" id="btn-register-submit">Register Account</button>
+        </form>
+
+        <!-- Admin Access Tips Box Helper -->
+        <div class="admin-credential-tip">
+          <strong>Testing Credentials:</strong><br>
+          Admin Login (Full admin controls):<br>
+          • User: <code>admin@store.com</code><br>
+          • Password: <code>admin123</code>
+        </div>
+
+        <div class="auth-footer" id="auth-footer-prompt">
+          By signing in, you agree to our policies.
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">AeroTech Studio</div>
+      <div class="footer-copyright">&copy; 2026 AeroTech E-Commerce Project. All rights reserved. Built for Internship Submission.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- JavaScript Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>

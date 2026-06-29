@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View items in your AeroTech Studio shopping cart. Complete your checkout securely or review your past order invoices and histories.">
+  <title>AeroTech | Shopping Cart & Order History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header Wrapper -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <a href="index.html" class="logo">
+          AeroTech <span>Store</span>
+        </a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" id="nav-home">Catalog</a>
+        <a href="cart.html" class="nav-link active" id="nav-cart-link">Orders & Cart</a>
+        <a href="admin.html" class="nav-link" id="nav-admin-link" style="display: none;">Admin Panel</a>
+      </nav>
+      <div class="nav-actions" id="nav-auth-actions">
+        <!-- populated from JS -->
+        <a href="auth.html" class="btn-login" id="btn-nav-login">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <div class="page-title-section">
+      <h1 class="page-title">Summary & History</h1>
+      <p class="page-subtitle">Track your items, process payments, and retrieve invoice records</p>
+    </div>
+
+    <!-- Main Grid Layout -->
+    <div class="cart-grid">
+      
+      <!-- Left Column: Itemized List -->
+      <section class="cart-items-section">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Cart Items</h2>
+        <div id="cart-items-container">
+          <!-- Dynamic Cart Items injected here -->
+          <div class="cart-empty-view">
+            <div class="cart-empty-icon">&#128717;</div>
+            <div class="cart-empty-text">Your cart is currently empty.</div>
+            <a href="index.html" class="btn-shop">Start Shopping</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Checkout Pricing Summary -->
+      <section class="cart-summary-section">
+        <h2 class="summary-heading">Checkout Summary</h2>
+        
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">$0.00</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span class="shipping-badge">FREE</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Estimated Sales Tax</span>
+          <span id="summary-tax">$0.00</span>
+        </div>
+
+        <div class="summary-row total">
+          <span>Grand Total</span>
+          <span id="summary-total">$0.00</span>
+        </div>
+
+        <!-- Checkout Action Button -->
+        <button class="btn-checkout" id="btn-checkout-action" onclick="processCheckout()" disabled>
+          Proceed to Checkout
+        </button>
+
+        <div class="checkout-login-notice" id="checkout-sign-in-prompt">
+          <!-- Populated dynamically when user is guest -->
+        </div>
+      </section>
+
+      <!-- Order History Section -->
+      <section class="history-section" id="my-orders-section" style="display: none;">
+        <h2 class="order-history-title">My Past Orders</h2>
+        <div id="orders-history-container">
+          <!-- Populated from JS -->
+          <p style="color: var(--text-secondary);">Loading order history...</p>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Simulated Payment Success Modal -->
+  <div class="modal-overlay" id="checkout-modal-overlay">
+    <div class="modal-content">
+      <div class="modal-icon">&#9989;</div>
+      <h2 class="modal-title">Payment Pre-Approved!</h2>
+      <p class="modal-text" id="checkout-modal-details">Order has been saved securely to database.</p>
+      <button class="btn-modal-close" onclick="closeCheckoutModal()">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">AeroTech Studio</div>
+      <div class="footer-copyright">&copy; 2026 AeroTech E-Commerce Project. All rights reserved. Built for Internship Submission.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification System -->
+  <div id="toast-container"></div>
+
+  <!-- JavaScript application context -->
+  <script src="app.js"></script>
+</body>
+</html>
